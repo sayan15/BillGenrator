@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="523.0" prefWidth="610.0" style="-fx-padding: 10;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.AccountStatementController">
+    <AnchorPane prefHeight="100.0" prefWidth="600.0" style="-fx-padding: 5;">
+        <VBox spacing="10">
+            <Label prefHeight="47.0" prefWidth="579.0" style="-fx-font-weight: bold; -fx-font-size: 20; -fx-text-fill: blue;" text="Your Electricity and Gas Statement" />
+            <HBox spacing="10.0" style="-fx-padding: 10; -fx-background-color: #B0C4DE;-fx-background-radius: 10;">
+                <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Previous Balance" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="previousBalance" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+            </HBox>
+            <HBox spacing="10.0" style="-fx-padding: 10; -fx-background-color: #B0C4DE;-fx-background-radius: 10;">
+                <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Payment Received" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="PaymentMade" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+            </HBox>
+            <HBox spacing="10.0" style="-fx-padding: 10; -fx-background-color: #B0C4DE;-fx-background-radius: 10;">
+                <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Balance" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="balance" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+            </HBox>
+
+        </VBox>
+    </AnchorPane>
+    <AnchorPane prefHeight="100.0" prefWidth="600.0" style="-fx-padding: 10;">
+        <VBox spacing="10">
+            <HBox prefHeight="46.0" prefWidth="579.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #FFFF00;-fx-background-radius: 10;">
+                <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Total Charges this Bill" />
+            </HBox>
+            <HBox spacing="10.0" style="-fx-padding: 10; -fx-background-color: #B0C4DE;-fx-background-radius: 10;">
+                <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Electricity" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="electricity" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+            </HBox>
+            <HBox spacing="10.0" style="-fx-padding: 10; -fx-background-color: #B0C4DE;-fx-background-radius: 10;">
+                <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Gas" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="gas" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+            </HBox>
+        </VBox>
+    </AnchorPane>
+    <AnchorPane prefHeight="100.0" prefWidth="600.0">
+        <HBox prefHeight="46.0" prefWidth="579.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #FFFF00;-fx-background-radius: 10;">
+            <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Account Balance" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="accountBalance" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+        </HBox>
+    </AnchorPane>
+</VBox>

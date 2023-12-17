@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.HomePageController">
+   <children>
+      <Label fx:id="welcomeText" />
+      <Button onAction="#onHelloButtonClick" text="Tarriff Creator" />
+      <Button layoutX="263.0" layoutY="5.0" onAction="#customerButtonClick" text="Customer Creator" />
+      <Button layoutX="126.0" onAction="#viewCustomerClick" text="View Customer" />
+      <Button layoutX="411.0" layoutY="13.0" onAction="#generateBillClick" text="Generate Bill" />
+   </children>
+</AnchorPane>

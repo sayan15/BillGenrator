@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.example.gasbill_generator.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_LEFT" prefHeight="400.0" prefWidth="600.0" spacing="10" style="-fx-padding: 10;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.BillGeneratorController">
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Enter Customer ID" />
+        <Button onAction="#searchCustomers" text="Search" />
+        <Label fx:id="statusLabel" layoutX="179.0" layoutY="333.0" prefHeight="18.0" prefWidth="286.0" style="-fx-text-fill: red;-fx-alignment: CENTER;-fx-padding: 10 0 0 0;" />
+    </HBox>
+
+
+    <VBox fx:id="resultBox" spacing="5">
+        <HBox spacing="30">
+            <TextField fx:id="customerIdField" editable="false" promptText="Customer ID" />
+            <TextField fx:id="customerNameField" editable="false" promptText="Customer Name" />
+            <TextField fx:id="RegisteredDate" editable="false" promptText="Registered date" />
+        </HBox>
+
+        <HBox spacing="30">
+            <TextField fx:id="selectedElectricity" editable="false" promptText="Selected Electricity Tariff" />
+            <TextField fx:id="selectedGas" editable="false" promptText="Selected Gas Tariff" />
+            <TextField fx:id="accountBalanceField" editable="false" promptText="Account Balance" />
+        </HBox>
+    </VBox>
+   <Pane prefHeight="232.0" prefWidth="579.0">
+       <children>
+           <Pane layoutX="-2.0" prefHeight="232.0" prefWidth="586.0" style="-fx-background-color: lightblue;">
+               <HBox spacing="30" style="-fx-padding: 10;">
+                   <VBox>
+                       <GridPane alignment="CENTER_LEFT" hgap="10" prefHeight="138.0" prefWidth="313.0" vgap="10">
+                           <Label text="Electricity Unit:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           <NumericTextField fx:id="electricityUnitField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           <Label text="Gas Unit:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           <NumericTextField fx:id="gasUnitField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                       </GridPane>
+                   </VBox>
+                   <VBox prefHeight="200.0" prefWidth="213.0" >
+                       <GridPane alignment="CENTER_LEFT" hgap="10" prefHeight="138.0" prefWidth="313.0" vgap="10">
+                           <Label text="Payment:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           <NumericTextField fx:id="paymentField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           <Label text="Select Date:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           <DatePicker fx:id="dateBillPicker" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                       </GridPane>
+                   </VBox>
+
+               </HBox>
+           </Pane>
+       </children>
+   </Pane>
+    <HBox spacing="10.0">
+        <Button onAction="#goBack" prefHeight="26.0" prefWidth="66.0" text="Back" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#generateStatement" prefHeight="26.0" prefWidth="96.0" text="Generate Bill" />
+    </HBox>
+
+</VBox>

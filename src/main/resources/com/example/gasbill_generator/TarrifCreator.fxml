@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.example.gasbill_generator.*?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="TOP_LEFT" prefHeight="400.0" prefWidth="600.0" spacing="10" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.TariffController">
+    <Button onAction="#goBack" prefHeight="26.0" prefWidth="50.0" text="Back" />
+    <VBox alignment="CENTER" prefHeight="400.0" prefWidth="555.0" spacing="10">
+        
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Tariff Information" />
+
+
+        <GridPane alignment="CENTER" hgap="10" prefHeight="134.0" prefWidth="563.0" vgap="10">
+
+        <Label text="Tariff Name:" GridPane.columnIndex="1" />
+        <TextField fx:id="tarrifNameField" GridPane.columnIndex="2" />
+
+        <Label text="Tariff Type:" GridPane.columnIndex="3" />
+        <ComboBox fx:id="tarrifTypeComboBox" prefHeight="26.0" prefWidth="151.0" GridPane.columnIndex="4" >
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Gas" />
+                    <String fx:value="Electricity" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <Label text="Standing Charge:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <NumericTextField fx:id="standingChargeField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+
+        <Label text="Unit per kWh:" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <NumericTextField fx:id="unitPerKwhField" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+
+
+    </GridPane>
+
+    <Button onAction="#saveTariff" prefHeight="26.0" prefWidth="66.0" text="Save" />
+        <!-- TableView for existing tariffs -->
+        <TableView fx:id="tariffTableView" prefHeight="200.0" prefWidth="400.0">
+            <columns>
+                <TableColumn text="Tariff Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="tarrifName" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Tariff Type">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="tarrifType" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Standing Charge">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="standingCharge" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Unit per kWh">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="unitPerKwh" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>
