@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.example.gasbill_generator.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_LEFT" prefHeight="233.0" prefWidth="555.0" spacing="10" style="-fx-padding: 10;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.EditCustomerController">
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Enter Customer ID" />
+        <Button onAction="#searchCustomers" text="Search" />
+        <Label fx:id="statusLabel" layoutX="179.0" layoutY="333.0" prefHeight="18.0" prefWidth="286.0" style="-fx-text-fill: red;-fx-alignment: CENTER;-fx-padding: 10 0 0 0;" />
+    </HBox>
+
+
+    <VBox fx:id="resultBox" spacing="5">
+        <HBox spacing="30">
+            <TextField fx:id="customerIdField" editable="false" promptText="Customer ID" />
+            <TextField fx:id="customerNameField" editable="true" promptText="Customer Name" />
+            <TextField fx:id="customerEmailField" editable="true" promptText="Customer Email" />
+        </HBox>
+
+        <HBox spacing="30">
+            <TextField fx:id="selectedElectricity" editable="false" promptText="Selected Electricity Tariff" />
+            <TextField fx:id="selectedGas" editable="false" promptText="Selected Gas Tariff" />
+            <DatePicker fx:id="registeredDate" editable="true" promptText="Registered date" />
+        </HBox>
+
+        <HBox spacing="30">
+            <NumericTextField fx:id="accountBalanceField" editable="true" promptText="Account Balance" />
+            <NumericTextField fx:id="lastElectricReading" editable="true" promptText="Last Electric Reading" />
+            <NumericTextField fx:id="lastGadReading" editable="true" promptText="LastGas Reading" />
+
+        </HBox>
+    </VBox>
+
+    <HBox prefHeight="26.0" prefWidth="490.0" spacing="10.0">
+        <Button onAction="#goBack" prefHeight="26.0" prefWidth="66.0" text="Back" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#updateCustomer" prefHeight="26.0" prefWidth="96.0" text="Update" />
+        <Button onAction="#deleteCustomer" prefHeight="26.0" prefWidth="96.0" text="Delete" />
+    </HBox>
+
+</VBox>

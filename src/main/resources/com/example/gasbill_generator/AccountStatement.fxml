@@ -43,10 +43,15 @@
         </VBox>
     </AnchorPane>
     <AnchorPane prefHeight="100.0" prefWidth="600.0">
-        <HBox prefHeight="46.0" prefWidth="579.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #FFFF00;-fx-background-radius: 10;">
-            <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Account Balance" />
-            <Region HBox.hgrow="ALWAYS" />
-            <Label fx:id="accountBalance" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
-        </HBox>
+        <VBox spacing="10">
+            <HBox prefHeight="46.0" prefWidth="579.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #FFFF00;-fx-background-radius: 10;">
+                <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Account Balance" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="accountBalance" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+            </HBox>
+            <HBox spacing="10.0" alignment="CENTER">
+                <Button onAction="#approveStatement" prefHeight="26.0" prefWidth="96.0" text="Approve" />
+            </HBox>
+        </VBox>
     </AnchorPane>
 </VBox>

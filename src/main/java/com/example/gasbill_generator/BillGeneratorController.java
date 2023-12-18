@@ -44,6 +44,12 @@ public class BillGeneratorController {
     private DatePicker dateBillPicker;
     @FXML
     private NumericTextField paymentField;
+    @FXML
+    private TextField lastElectricReading;
+    @FXML
+    private  TextField lastGadReading;
+    @FXML
+    private TextField lastPaymentDate;
     private Customer firstResult;
     private   BillGenerator billDetails;
     @FXML
@@ -96,6 +102,9 @@ public class BillGeneratorController {
 
             // Populate fields with the first result
             accountBalanceField.setText("£"+billDetails.toString(billDetails.getAccountBalance()));
+            lastElectricReading.setText(billDetails.toString(billDetails.getLastElectricityUnitReading())+"p");
+            lastGadReading.setText(billDetails.toString(billDetails.getGasUnitReading())+"p");
+            lastPaymentDate.setText(billDetails.getLastBillDate().toString());
             statusLabel.setText("");
         } else {
             // Clear fields if there are no results
@@ -163,7 +172,8 @@ public class BillGeneratorController {
 
     //check the date should be greater than lastBilldate
     private boolean checkdate(){
-        if(dateBillPicker.getValue().isAfter(billDetails.getlastBillDate())){
+        //check the date is after last bill date and on or before today
+        if(dateBillPicker.getValue().isAfter(billDetails.getLastBillDate()  ) && !dateBillPicker.getValue().isBefore(billDetails.getLastBillDate()  )){
             return true;
         }
         else {

@@ -1,2 +1,0 @@
-CustomerId,LastBillDate,LastElectricityunitReading,LastGasunitReading,AccountBalance,GasBill,ElectricityBill,Total,Due
-0,2023-12-01,37386.998,102.2,0.0,0.0,0.0,0.0,0.0

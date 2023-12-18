@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_LEFT" prefHeight="400.0" prefWidth="600.0" spacing="10" style="-fx-padding: 10;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.BillGeneratorController">
+<VBox alignment="TOP_LEFT" prefHeight="432.0" prefWidth="600.0" spacing="10" style="-fx-padding: 10;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.BillGeneratorController">
     <HBox spacing="10">
         <TextField fx:id="searchField" promptText="Enter Customer ID" />
         <Button onAction="#searchCustomers" text="Search" />
@@ -23,6 +23,12 @@
             <TextField fx:id="selectedElectricity" editable="false" promptText="Selected Electricity Tariff" />
             <TextField fx:id="selectedGas" editable="false" promptText="Selected Gas Tariff" />
             <TextField fx:id="accountBalanceField" editable="false" promptText="Account Balance" />
+        </HBox>
+
+        <HBox spacing="30">
+            <TextField fx:id="lastElectricReading" editable="false" promptText="Last Electric Reading" />
+            <TextField fx:id="lastGadReading" editable="false" promptText="LastGas Reading" />
+            <TextField fx:id="lastPaymentDate" editable="false" promptText="Last Payment Date" />
         </HBox>
     </VBox>
    <Pane prefHeight="232.0" prefWidth="579.0">
@@ -49,12 +55,24 @@
                      </rowConstraints>
                        </GridPane>
                    </VBox>
-                   <VBox prefHeight="200.0" prefWidth="213.0" >
+                   <VBox prefHeight="200.0" prefWidth="213.0">
                        <GridPane alignment="CENTER_LEFT" hgap="10" prefHeight="138.0" prefWidth="313.0" vgap="10">
                            <Label text="Payment:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            <NumericTextField fx:id="paymentField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            <Label text="Select Date:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                            <DatePicker fx:id="dateBillPicker" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
                        </GridPane>
                    </VBox>
 

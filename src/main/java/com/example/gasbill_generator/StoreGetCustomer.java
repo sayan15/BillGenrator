@@ -23,15 +23,15 @@ public class StoreGetCustomer {
         // Get the last added Tariff values
         if (!existingCustomerList .isEmpty()) {
             Customer lastAddedCustomer = existingCustomerList.get(existingCustomerList.size() - 1);
-            lastAddedCustomer.setCustomerId(lastAddedCustomer.getCustomerId()+1);
+            newCustomer.setCustomerId(lastAddedCustomer.getCustomerId()+1);
         }
         // Add the newTariff to the list
         existingCustomerList.add(newCustomer);
 
         // Write the updated list back to the file
         writeToFile(existingCustomerList);
-
-        writeCustomerToCSV(newCustomer);
+        //store date in csv file to get the bill details
+        StoreGetBillDetails.writeNewCustomerToCSV(newCustomer);
 
         return "Successfully Customer Registered";
     }
@@ -47,28 +47,47 @@ public class StoreGetCustomer {
             return (ArrayList<Customer>) objectInputFile.readObject();
         }
     }
+    public static boolean updateCustomerInFile(Customer updatedCustomer) throws IOException, ClassNotFoundException {
+        // Read the existing list from the file
+        ArrayList<Customer> existingCustomerList = readFromCustomerFile();
 
-    private static void writeCustomerToCSV(Customer customer) throws IOException {
+        // Find the customer to update based on ID
+        for (int i = 0; i < existingCustomerList.size(); i++) {
+            Customer currentCustomer = existingCustomerList.get(i);
+            if (currentCustomer.getCustomerId() == updatedCustomer.getCustomerId()) {
+                // Update the customer details
+                existingCustomerList.set(i, updatedCustomer);
 
-        boolean isNewFile = !Files.exists(Paths.get(csvFileName));
+                // Write the updated list back to the file
+                writeToFile(existingCustomerList);
 
-        try (PrintWriter writer = new PrintWriter(new FileWriter(csvFileName, true))) {
-            // If it's a new file, write headers
-            if (isNewFile) {
-                writer.println("CustomerId,LastBillDate,LastElectricityunitReading,LastGasunitReading,AccountBalance,GasBill,ElectricityBill,Total,Due");
+                return true;
             }
-
-            // Append customer data to the CSV file
-            writer.println(customer.getCustomerId() + "," +
-                    customer.getDateJoined() + "," +
-                    customer.getElectricityunitKwhField() + "," +
-                    customer.getGasunitKwhField()+ "," +
-                    0.0+ "," +
-                    0.0+ "," +
-                    0.0+ "," +
-                    0.0+ "," +
-                    0.0);
         }
+
+        return false;
     }
+
+    public static boolean deleteCustomerFromFile(int customerId) throws IOException, ClassNotFoundException {
+        // Read the existing list from the file
+        ArrayList<Customer> existingCustomerList = readFromCustomerFile();
+
+        // Find the customer to delete based on ID
+        for (Customer customer : existingCustomerList) {
+            if (customer.getCustomerId() == customerId) {
+                // Remove the customer from the list
+                existingCustomerList.remove(customer);
+
+                // Write the updated list back to the file
+                writeToFile(existingCustomerList);
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
 
 }

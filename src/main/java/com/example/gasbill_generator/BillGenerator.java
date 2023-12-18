@@ -1,7 +1,6 @@
 package com.example.gasbill_generator;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class BillGenerator {
     private int customerId;
@@ -14,9 +13,13 @@ public class BillGenerator {
     private double total;
     private double due;
 
-    public BillGenerator(int customerId, LocalDate dateJoined, double lastElectricityUnitReading, double gasUnitReading, double accountBalance, double gasBill, double electricityBill, double total, double due) {
+
+
+    private double payment;
+
+    public BillGenerator(int customerId, LocalDate lastBillDate , double lastElectricityUnitReading, double gasUnitReading, double accountBalance, double gasBill, double electricityBill, double total, double due) {
         this.customerId = customerId;
-        this.lastBillDate = dateJoined;
+        this.lastBillDate = lastBillDate ;
         this.lastElectricityUnitReading = lastElectricityUnitReading;
         this.gasUnitReading = gasUnitReading;
         this.accountBalance = accountBalance;
@@ -24,14 +27,27 @@ public class BillGenerator {
         this.electricityBill = electricityBill;
         this.total = total;
         this.due = due;
+        this.payment=0.0;
     }
+
+
+    public void makePayment(double payment) {
+        this.payment = payment;
+        setAccountBalance(getAccountBalance()+payment);
+    }
+
+    public double getPayment(){
+        return payment;
+    }
+
+
 
     public int getCustomerId() {
         return customerId;
     }
 
 
-    public LocalDate getlastBillDate() {
+    public LocalDate getLastBillDate() {
         return lastBillDate;
     }
 
@@ -66,15 +82,17 @@ public class BillGenerator {
         if(accountBalance==0.0){
             return 0.0;
         }else{
-            if(accountBalance>=(getElectricityBill()+getGasBill())){
-                return accountBalance-(getElectricityBill()+getGasBill());
+            if(accountBalance>=(getElectricityBill()+getGasBill()+getDue())){
+                setAccountBalance(Math.round((accountBalance-(getElectricityBill()+getGasBill()+getDue()))*100.0)/100.0);
+                return getAccountBalance();
             }else {
+                setDue((getElectricityBill()+getGasBill()+getDue())-accountBalance);
                 setAccountBalance(0.0);
-                setDue((getElectricityBill()+getGasBill())-accountBalance);
                 return 0.0;
             }
         }
     }
+
 
     public double getGasBill() {
         return gasBill;
@@ -93,7 +111,7 @@ public class BillGenerator {
     }
 
     public double getTotal() {
-        return total;
+        return getElectricityBill()+getGasBill();
     }
 
     public void setTotal(double total) {
