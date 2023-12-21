@@ -30,7 +30,7 @@
                         <Button layoutX="144.0" layoutY="83.0" onAction="#viewCustomerClick" text="View Customer" />
                         <Button layoutX="430.0" layoutY="83.0" onAction="#generateBillClick" text="Generate Bill" />
                          <Button layoutX="430.0" layoutY="83.0" onAction="#editCustomer" text="Edit Customer" />
-                        <Button layoutX="430.0" layoutY="83.0" onAction="#generateBillClick" text="Log Out" />
+                        <Button layoutX="430.0" layoutY="83.0" onAction="#logOutClick" style="-fx-background-color: red;" text="Log Out" />
                      </items>
                   </ToolBar>
                   <SplitPane dividerPositions="0.3238180196253345" layoutY="35.0" orientation="VERTICAL" prefHeight="450.0" prefWidth="565.0">

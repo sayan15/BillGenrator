@@ -3,20 +3,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.LoginPageController">
+<AnchorPane prefHeight="307.0" prefWidth="567.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.LoginPageController">
 
-        <Label layoutX="258.0" layoutY="98.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Login Page" />
-    
+    <Label layoutX="189.0" layoutY="70.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="GasBill Generator" />
 
+    <TextField fx:id="usernameField" layoutX="296.0" layoutY="122.0" promptText="Username" />
+    <PasswordField fx:id="passwordField" layoutX="296.0" layoutY="182.0" promptText="Password" />
 
-         <PasswordField fx:id="passwordField" layoutX="346.0" layoutY="226.0" />
+    <Button layoutX="250.0" layoutY="237.0" onAction="#ValidateUser" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Login" />
 
-         <Button layoutX="300.0" layoutY="282.0" onAction="#ValidateUser" text="Login" />
-         <TextField fx:id="usernameField" layoutX="346.0" layoutY="163.0" />
+    <Label layoutX="150.0" layoutY="185.0" style="-fx-font-size: 14px;" text="Password:" />
+    <Label layoutX="150.0" layoutY="125.0" style="-fx-font-size: 14px;" text="Username:" />
 
-         <Label layoutX="165.0" layoutY="230.0" text="Password:" />
-
-         <Label layoutX="163.0" layoutY="167.0" text="Username:" />
-    <Label fx:id="statusLabel" layoutX="179.0" layoutY="333.0" prefHeight="18.0" prefWidth="286.0" style="-fx-text-fill: red;-fx-alignment: CENTER;" />
+    <Label alignment="CENTER" fx:id="statusLabel" layoutX="146.0" layoutY="273.0" prefHeight="18.0" prefWidth="300.0" style="-fx-text-fill: red; -fx-font-size: 14px;" />
 
 </AnchorPane>

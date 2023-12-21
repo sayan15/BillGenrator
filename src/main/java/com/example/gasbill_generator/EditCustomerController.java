@@ -50,19 +50,21 @@ public class EditCustomerController {
     @FXML
     private void searchCustomers(ActionEvent event) throws IOException, ClassNotFoundException, ParseException {
         String searchCriteria = searchField.getText().toLowerCase();
-        //read from customer file
-        List<Customer> searchResults = StoreGetCustomer.readFromCustomerFile().stream()
-                .filter(customer -> matchesSearchCriteria(customer, searchCriteria))
-                .collect(Collectors.toList());
+        if(!searchCriteria.isEmpty()){
+            //read from customer file
+            List<Customer> searchResults = StoreGetCustomer.readFromCustomerFile().stream()
+                    .filter(customer -> matchesSearchCriteria(customer, searchCriteria))
+                    .collect(Collectors.toList());
 
-        //read from bill file to get the bill details
-        List<BillGenerator> csvFilesearchResults=StoreGetBillDetails.readFromCustomerBillFile().stream()
-                .filter(customer->matchesSearchCriteriaCsv(customer, searchCriteria))
-                .collect(Collectors.toList());
-        //pupulte customer details
-        populateResultFields(searchResults);
-        //populate bill details
-        populateResultBillFields(csvFilesearchResults);
+            //read from bill file to get the bill details
+            List<BillGenerator> csvFilesearchResults=StoreGetBillDetails.readFromCustomerBillFile().stream()
+                    .filter(customer->matchesSearchCriteriaCsv(customer, searchCriteria))
+                    .collect(Collectors.toList());
+            //pupulte customer details
+            populateResultFields(searchResults);
+            //populate bill details
+            populateResultBillFields(csvFilesearchResults);
+        }
     }
 
 

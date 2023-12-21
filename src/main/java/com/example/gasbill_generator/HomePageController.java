@@ -1,5 +1,6 @@
 package com.example.gasbill_generator;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -133,13 +134,15 @@ public class HomePageController implements Initializable {
     @FXML
     private void getPaymentHistory(ActionEvent event) throws IOException, ClassNotFoundException, ParseException {
         String searchCriteria = searchField.getText().toLowerCase();
-        //read from customer file
-        List<BillGenerator> searchResults = StoreGetBillDetails.readFromCustomerPaymentFile().stream()
-                .filter(customer -> matchesSearchCriteria(customer, searchCriteria))
-                .collect(Collectors.toList());
+        if(!searchCriteria.isEmpty()){
+            //read from customer file
+            List<BillGenerator> searchResults = StoreGetBillDetails.readFromCustomerPaymentFile().stream()
+                    .filter(customer -> matchesSearchCriteria(customer, searchCriteria))
+                    .collect(Collectors.toList());
 
-        //pupulte customer details
-        populateResultFields(searchResults);
+            //pupulte customer details
+            populateResultFields(searchResults);
+        }
 
     }
 
@@ -180,4 +183,9 @@ public class HomePageController implements Initializable {
         homePageTableView.getItems().addAll(customerObservableList);
     }
 
+    //logout from the application
+    @FXML
+    protected void logOutClick(ActionEvent e)throws IOException{
+        Platform.exit();
+    }
 }
