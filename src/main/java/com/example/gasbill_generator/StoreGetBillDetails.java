@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class StoreGetBillDetails {
     private static final String csvFileName = "CustomersBillDetails.csv";
-    private static final String paymentCsvFileName="paymentHistory.csv";
+    private static final String paymentCsvFileName="BillHistory.csv";
 
     public static ArrayList<BillGenerator> readFromCustomerBillFile() throws IOException, ClassNotFoundException {
         File file = new File(csvFileName);
@@ -154,7 +154,7 @@ public class StoreGetBillDetails {
             // Set the second parameter to true to append to the existing file
             // If the file doesn't exist, a new file will be created
             if (isNewFile) {
-                writer.println("CustomerId,LastBillDate,GasBill,ElectricityBill,Total,Payment");
+                writer.println("CustomerId,LastBillDate,GasBill,ElectricityBill,Total,Due");
             }
 
 
@@ -163,7 +163,7 @@ public class StoreGetBillDetails {
                         bill.getGasBill() + "," +
                         bill.getElectricityBill() + "," +
                         bill.getTotal() + "," +
-                        bill.getPayment();
+                        bill.getDue();
 
                 writer.println(line);
 

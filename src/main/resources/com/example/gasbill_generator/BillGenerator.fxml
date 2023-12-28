@@ -83,6 +83,10 @@
     <HBox spacing="10.0">
         <Button onAction="#goBack" prefHeight="26.0" prefWidth="66.0" text="Back" />
         <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#generateElectricStatement" prefHeight="26.0" prefWidth="96.0" text="Electric Bill" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#generateGasStatement" prefHeight="26.0" prefWidth="96.0" text="Gas Bill" />
+        <Region HBox.hgrow="ALWAYS" />
         <Button onAction="#generateStatement" prefHeight="26.0" prefWidth="96.0" text="Generate Bill" />
     </HBox>
 

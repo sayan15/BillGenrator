@@ -29,8 +29,12 @@ public class Pdf_Creator {
                 Paragraph title = new Paragraph("Monthly Bill", titleFont);
                 title.setAlignment(Element.ALIGN_CENTER);
                 document.add(title);
-                document.add(new Paragraph());
-                document.add(new Paragraph());
+
+                // Add space after the title
+                Paragraph space = new Paragraph(" "); // Create a blank paragraph for space
+                document.add(space);
+
+
                 // Create a table
                 PdfPTable table = new PdfPTable(2); // Two columns
 

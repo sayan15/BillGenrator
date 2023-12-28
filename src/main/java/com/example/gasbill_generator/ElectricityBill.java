@@ -21,6 +21,13 @@ public class ElectricityBill extends Bill{
         return Math.round(totalBill * 100.0) / 100.0;
     }
 
+    public  double getKwh(){
+        return (getEndReading()-getStartingReading());
+    }
+
+    public  long getDays(){
+        return ChronoUnit.DAYS.between(getStartDate(), getEndDate());
+    }
     public String toString(double val){
         return String.valueOf(val);
     }

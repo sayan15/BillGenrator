@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="100.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gasbill_generator.ElectricityBillPageController">
+
+    <VBox>
+        <!-- Header for Electricity Statement -->
+        <HBox>
+            <Label style="-fx-font-size: 24px;" text="Electricity statement" />
+            <!-- Other header elements like icons or additional info can be added here -->
+        </HBox>
+
+        <!-- Main Content Area -->
+        <VBox>
+            <!-- Total New Electricity Charges Section -->
+            <VBox>
+                <Label style="-fx-font-weight: bold;" text="Your total new electricity charges" />
+                <!-- Add more rows as needed -->
+            </VBox>
+
+            <!-- Electricity Readings Section -->
+            <VBox spacing="5" style="-fx-padding: 10;">
+                <HBox prefHeight="45.0" prefWidth="594.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #B0C4DE;-fx-background-radius: 10;">
+                    <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Standing Charge" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label fx:id="standingCharge" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+                </HBox>
+                <HBox prefHeight="45.0" prefWidth="594.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #B0C4DE;-fx-background-radius: 10;">
+                    <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Usage of Single Rate Electricity" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label fx:id="singleRate" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+                </HBox>
+                <HBox prefHeight="46.0" prefWidth="579.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #FFFF00;-fx-background-radius: 10;">
+                    <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Total Charges" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label fx:id="totalCharges" style="-fx-font-size: 16; -fx-text-fill: black;" text="£0.0" />
+                </HBox>
+            </VBox>
+
+            <!-- Charges Section -->
+            <VBox  spacing="5" style="-fx-padding: 15;">
+                <Label style="-fx-font-weight: bold;" text="Period Calculation" />
+                <!-- Table for Charges -->
+                <HBox prefHeight="45.0" prefWidth="594.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #B0C4DE;-fx-background-radius: 10;">
+                    <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Period" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Open Reading" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Close Reading" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label style="-fx-font-size: 16; -fx-text-fill: black;" text="Kwh" />
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="579.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #FFFF00;-fx-background-radius: 10;">
+
+                    <Label  fx:id="period" style="-fx-font-size: 10; -fx-text-fill: black;" text="£0.0" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label fx:id="openRaeding" style="-fx-font-size: 10; -fx-text-fill: black;" text="£0.0" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label fx:id="closeReading" style="-fx-font-size: 10; -fx-text-fill: black;" text="£0.0" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label fx:id="kwh" style="-fx-font-size: 10; -fx-text-fill: black;" text="£0.0" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </VBox>
+</AnchorPane>

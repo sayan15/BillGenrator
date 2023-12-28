@@ -132,7 +132,7 @@ public class HomePageController implements Initializable {
 
     //check for the specific customer
     @FXML
-    private void getPaymentHistory(ActionEvent event) throws IOException, ClassNotFoundException, ParseException {
+    private void getBillHistory(ActionEvent event) throws IOException, ClassNotFoundException, ParseException {
         String searchCriteria = searchField.getText().toLowerCase();
         if(!searchCriteria.isEmpty()){
             //read from customer file
@@ -172,8 +172,8 @@ public class HomePageController implements Initializable {
         TableColumn<BillGenerator, Double> totalBillColumn= new TableColumn<>("Total Bill");
         totalBillColumn.setCellValueFactory(new PropertyValueFactory<>("total"));
 
-        TableColumn<BillGenerator, Double> paymentColumn= new TableColumn<>("Payment");
-        paymentColumn.setCellValueFactory(new PropertyValueFactory<>("payment"));
+        TableColumn<BillGenerator, Double> paymentColumn= new TableColumn<>("Due");
+        paymentColumn.setCellValueFactory(new PropertyValueFactory<>("due"));
 
         homePageTableView.getColumns().clear();
         homePageTableView.getColumns().addAll(customerNameColumn, dateJoinedColumn, gasBillColumn,electricityBillColumn,totalBillColumn,paymentColumn);

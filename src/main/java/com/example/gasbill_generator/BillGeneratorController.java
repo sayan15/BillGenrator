@@ -158,6 +158,45 @@ public class BillGeneratorController {
         }
 
     }
+    //geerate electric bill
+    @FXML
+    public void generateElectricStatement(ActionEvent e) throws IOException{
+        if(!isAnyFieldEmpty() && checkdate() && checkReading() ){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ElectricityBillPage.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller instance
+            ElectricityBillPageController electricityBill = loader.getController();
+
+            // Pass data to the second controller
+            electricityBill.setData(firstResult,billDetails,electricityUnitField.getNumericValue(),dateBillPicker.getValue());
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+
+    }
+
+    //generate gas bill
+    @FXML
+    public void generateGasStatement(ActionEvent e) throws IOException{
+        if(!isAnyFieldEmpty() && checkdate() && checkReading() ){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GasBillPage.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller instance
+            GasBillPageController gasBill = loader.getController();
+
+            // Pass data to the second controller
+            gasBill.setData(firstResult,billDetails,gasUnitField.getNumericValue(),dateBillPicker.getValue());
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+
+    }
 
     //check before proceed further
     private boolean isAnyFieldEmpty() {
